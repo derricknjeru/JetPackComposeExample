@@ -7,6 +7,7 @@ import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -15,14 +16,23 @@ import androidx.compose.ui.platform.setContent
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.ui.tooling.preview.Preview
+import com.example.jetpackcomposeexample.ui.JetPackComposeExampleTheme
 import com.example.jetpackcomposeexample.ui.typography
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            NewStory()
+            JetPackComposeExampleTheme(darkTheme = false) {
+                Column() {
+                    TopAppBar(
+                        title = { Text(text = "Jetpack Compose") }
+                    )
+                    NewStory()
+                }
+
+            }
+
         }
 
     }
@@ -55,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    @Preview
+    // @Preview
     @Composable
     fun DefaultPreview() {
         NewStory()
